@@ -29,7 +29,7 @@ This asynchronous example uses [Tokio](https://tokio.rs) and enables some option
 ```toml
 [dependencies]
 tokio = { version = "1", features = ["full"] }
-rquest = "2.1.5"
+rquest = "2.2.0"
 ```
 
 And then the code:
@@ -75,15 +75,9 @@ By default, `rquest` uses Mozilla's root certificates through the `webpki-roots`
 
 ## Fingerprint
 
-- **TLS/HTTP2 Fingerprint**
+- **HTTP/2 over TLS**
 
-  Supports custom `TLS`/`HTTP2` fingerprint parameters. Customization is not recommended unless you are highly familiar with `TLS` and `HTTP2`, as it may cause unexpected issues.
-
-- **JA3/JA4/Akamai Fingerprint**
-
-  `JA3`/`JA4`/`Akamai` fingerprints cannot accurately simulate browser fingerprints due to the sophistication of `TLS` encryption and the popularity of HTTP2. `rquest` does not plan to support parsing these fingerprint strings for simulation. Users are encouraged to customize the configuration according to their own needs.
-
-  Note: Many `Akamai` fingerprint strings are incomplete. For example, the [website](https://tls.peet.ws/api/all) lacks Priority and Stream ID in the Headers Frame, making it easy to detect. For details, refer to the `HTTP2` frame [parser](https://github.com/0x676e67/pingly/blob/main/src/track/inspector/http2.rs).
+  **JA3**/**JA4**/**Akamai** fingerprints cannot accurately simulate browser fingerprints due to the sophistication of TLS encryption and the popularity of HTTP/2. `rquest` does not plan to support parsing these fingerprint strings for simulation. Users are encouraged to customize the configuration according to their own needs.
 
 - **Default Fingerprint**
 
@@ -93,25 +87,13 @@ By default, `rquest` uses Mozilla's root certificates through the `webpki-roots`
 
     <summary>Default device emulation types</summary>
 
-  - **Chrome**
-
-    `Chrome100`, `Chrome101`, `Chrome104`, `Chrome105`, `Chrome106`, `Chrome107`, `Chrome108`, `Chrome109`, `Chrome114`, `Chrome116`, `Chrome117`, `Chrome118`, `Chrome119`, `Chrome120`, `Chrome123`, `Chrome124`, `Chrome126`, `Chrome127`, `Chrome128`, `Chrome129`, `Chrome130`, `Chrome131`, `Chrome133`
-
-  - **Edge**
-
-    `Edge101`, `Edge122`, `Edge127`, `Edge131`
-
-  - **Safari**
-
-    `SafariIos17_2`, `SafariIos17_4_1`, `SafariIos16_5`, `Safari15_3`, `Safari15_5`, `Safari15_6_1`, `Safari16`, `Safari16_5`, `Safari17_0`, `Safari17_2_1`, `Safari17_4_1`, `Safari17_5`, `Safari18`, `SafariIPad18`, `Safari18_2`, `Safari18_1_1`
-
-  - **OkHttp**
-
-    `OkHttp3_9`, `OkHttp3_11`, `OkHttp3_13`, `OkHttp3_14`, `OkHttp4_9`, `OkHttp4_10`, `OkHttp5`
-
-  - **Firefox**
-
-    `Firefox109`, `Firefox117`, `Firefox128`, `Firefox133`, `Firefox135`, `FirefoxPrivate135`, `FirefoxAndroid135`
+  | **Browser**   | **Versions**                                                                                     |
+  |---------------|--------------------------------------------------------------------------------------------------|
+  | **Chrome**    | `Chrome100`, `Chrome101`, `Chrome104`, `Chrome105`, `Chrome106`, `Chrome107`, `Chrome108`, `Chrome109`, `Chrome114`, `Chrome116`, `Chrome117`, `Chrome118`, `Chrome119`, `Chrome120`, `Chrome123`, `Chrome124`, `Chrome126`, `Chrome127`, `Chrome128`, `Chrome129`, `Chrome130`, `Chrome131`, `Chrome133` |
+  | **Edge**      | `Edge101`, `Edge122`, `Edge127`, `Edge131`                                                       |
+  | **Safari**    | `SafariIos17_2`, `SafariIos17_4_1`, `SafariIos16_5`, `Safari15_3`, `Safari15_5`, `Safari15_6_1`, `Safari16`, `Safari16_5`, `Safari17_0`, `Safari17_2_1`, `Safari17_4_1`, `Safari17_5`, `Safari18`, `SafariIPad18`, `Safari18_2`, `Safari18_1_1` |
+  | **OkHttp**    | `OkHttp3_9`, `OkHttp3_11`, `OkHttp3_13`, `OkHttp3_14`, `OkHttp4_9`, `OkHttp4_10`, `OkHttp5`         |
+  | **Firefox**   | `Firefox109`, `Firefox117`, `Firefox128`, `Firefox133`, `Firefox135`, `FirefoxPrivate135`, `FirefoxAndroid135` |
 
     </details>
 
@@ -129,15 +111,19 @@ sudo apt-get install build-essential cmake perl pkg-config libclang-dev musl-too
 cargo build --release
 ```
 
-You can also use [this GitHub Actions workflow](.github/compilation-guide/build.yml) to compile your project on **Linux**, **Windows**, and **macOS**.
-
-## Contribution
-
-If you would like to submit your contribution, please open a [Pull Request](https://github.com/0x676e67/rquest/pulls).
+This GitHub Actions [workflow](.github/compilation-guide/build.yml) can be used to compile the project on **Linux**, **Windows**, and **macOS**.
 
 ## License
 
-Apache-2.0 [LICENSE](LICENSE)
+Released under the [Apache-2.0](./LICENSE) License.
+
+## Contribution
+
+Unless you explicitly state otherwise, any contribution intentionally submitted for inclusion in the work by you, as defined in the [Apache-2.0](./LICENSE) license, shall be licensed as above, without any additional terms or conditions.
+
+## Sponsors
+
+Support this project by becoming a [sponsor](https://github.com/0x676e67/0x676e67/blob/main/SPONSOR.md).
 
 ## Accolades
 
