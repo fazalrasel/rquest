@@ -167,8 +167,7 @@ impl Policy {
         cross_proxy_auth: bool,
     ) {
         if let Some(previous) = previous.last() {
-            let cross_host = next.host_str() != previous.host_str()
-                || next.port_or_known_default() != previous.port_or_known_default();
+            let cross_host = next.host_str() != previous.host_str();
             if cross_host {
                 headers.remove(AUTHORIZATION);
                 headers.remove(COOKIE);
