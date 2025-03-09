@@ -167,16 +167,7 @@ impl Policy {
         cross_proxy_auth: bool,
     ) {
         if let Some(previous) = previous.last() {
-            let cross_host = next.host_str() != previous.host_str();
-            if cross_host {
-                headers.remove(AUTHORIZATION);
-                headers.remove(COOKIE);
-                headers.remove("cookie2");
-                if !cross_proxy_auth {
-                    headers.remove(PROXY_AUTHORIZATION);
-                }
-                headers.remove(WWW_AUTHENTICATE);
-            }
+
         }
     }
 }
